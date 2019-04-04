@@ -31,7 +31,7 @@ RUN \
 VOLUME ["/var/lib/cassandra", "/var/log/cassandra"]
 
 # set default command when starting container with "docker run"
-CMD /root/run.sh
+#CMD /root/run.sh
 
 # available ports:
 #  7000 intra-node communication
@@ -41,5 +41,6 @@ CMD /root/run.sh
 #  9160 cassandra thrift interface (legacy)
 EXPOSE 9042 9160
 
-RUN chmod 777 /root/run.sh 
-COPY run.sh* /root/run.sh 
+COPY run.sh /root/run.sh
+RUN chmod 777 /root/run.sh
+CMD /root/run.sh 
